@@ -26,11 +26,15 @@ class Spa {
             htmlText = await load(url);
         }
 
-        if (this.cache && this.cache.get(url) === undefined) {
-            this.cache.set(url, htmlText);
-        }
-
         const newDocument = (new DOMParser).parseFromString(htmlText, 'text/html');
+        const newElements = dynamicContainer.map((container) => {
+            const attribute = container.getAttribute(this.attributeIdentifier);
+            return newDocument.querySelector(`[${this.attributeIdentifier}=${attribute}]`);
+        });
+
+        if (this.cache && this.cache.get(url) === undefined) {
+            this.cache.set(url, {htmlText, htmlElements: newElements});
+        }
 
         dynamicContainer.forEach((container) => {
             const attribute =  container.getAttribute(this.attributeIdentifier);

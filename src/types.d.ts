@@ -1,10 +1,11 @@
-export interface PageResult {
-    [key: string]: string;
-}
+export type PageItem = {
+    htmlElements: (Element|null)[];
+    htmlText: string;
+};
 
 export interface Cache {
     get(key: string): string | undefined;
-    set(key: string, content: string): void;
+    set(key: string, item: PageItem): void;
     clear?(): void;
     remove?(key: string): void;
 };

@@ -14,7 +14,11 @@
     <script type="module">
         import { Spa, LocalStorageCache } from "./dist/simple-spa.esm.js";
         
-        const mySpa = new Spa();
+        const myCache = new LocalStorageCache();
+
+        const mySpa = new Spa({
+            cache: myCache
+        });
 
         document.querySelector('.test').addEventListener('click', () => {
             mySpa.load('/')
