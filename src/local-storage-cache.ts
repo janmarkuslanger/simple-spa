@@ -47,6 +47,22 @@ class LocalStorageCache implements Cache {
 
         localStorage.setItem(IDENTIFIER, JSON.stringify(cache));
     }
+
+    clear() {
+        localStorage.removeItem(IDENTIFIER);
+    }
+
+    remove(key: string) {
+        const cacheString = localStorage.getItem(IDENTIFIER);
+
+        if (cacheString === null) {
+            return;
+        }
+
+        const cache = JSON.parse(cacheString) as LocalStorageCacheItem;
+        delete cache[key];
+        localStorage.setItem(IDENTIFIER, JSON.stringify(cache));
+    }
 }
 
 export default LocalStorageCache;
