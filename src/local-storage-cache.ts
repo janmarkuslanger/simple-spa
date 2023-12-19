@@ -1,7 +1,7 @@
 import { Cache, PageItem } from './types.d';
 
 const IDENTIFIER = 'simple-spa';
-const MAX_CACHE_AGE = 1000 * 60 * 60 * 24; // 1 day
+export const MAX_CACHE_AGE = 1000 * 60 * 60 * 24; // 1 day
 
 type CacheItem = {
     content: string;
