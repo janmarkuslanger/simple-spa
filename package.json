@@ -31,7 +31,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "simple-spa",
+  "name": "@janmarkuslanger/simple-spa",
   "author": "Jan-Markus Langer",
   "module": "dist/simple-spa.esm.js",
   "size-limit": [
